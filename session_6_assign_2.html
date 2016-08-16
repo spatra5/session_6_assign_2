@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JQuery Assignment</title>
+	
+	<script src="../jQuery.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("input[type='text']").blur(function(e){
+				e.preventDefault();
+				
+				var $this = $(this);
+				if($this.val() == "" || $this.val().match("^Field")) {
+					$this.next("span.error").css("color","red").html("Please enter a valid input.");
+				}
+				else {
+					$this.next("span.error").empty();
+				}
+			});			
+		});
+	</script>
+
+</head>
+
+<body>
+	<form>
+		<input id="field1" type="text" value="Field 1">
+		<span class="error"></span>
+		<br/>
+		<input id="field2" type="text" value="Field 2">
+		<span class="error"></span>
+	</form>
+
+</body>
+</html>
